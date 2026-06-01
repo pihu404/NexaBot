@@ -1,36 +1,69 @@
-🤖 NexaBot – AI-Powered Customer Support Chatbot
+# 🤖 NexaBot — AI-Powered Customer Support Chatbot
 
-NexaBot is a full-stack customer support chatbot developed using Python (Flask) and SQLite. It provides intelligent FAQ-based responses, maintains conversation history, and offers real-time interaction statistics through RESTful APIs.
+A full-stack AI chatbot for customer support and FAQs, built with Python (Flask) and SQLite.
 
-The chatbot uses keyword-based intent recognition and FAQ matching to deliver accurate responses for common customer support queries such as account issues, order tracking, payments, returns, shipping, and business hours.
+## Features
+- 💬 Natural language FAQ matching with keyword scoring
+- 📜 Persistent conversation logs per session
+- 📊 Real-time stats (total messages, sessions, user interactions)
+- 🎨 Modern dark-themed UI with typing indicators and quick suggestions
+- 💾 SQLite database for storing conversations and FAQs
+- 🔌 RESTful API (`/api/chat`, `/api/history`, `/api/stats`)
 
-✨ Key Features
-Intelligent FAQ matching using keyword scoring
-Session-based conversation management
-Persistent chat history stored in SQLite
-Real-time chatbot analytics and statistics
-RESTful API architecture
-Lightweight and easy to deploy
-Responsive customer support experience
-Extensible architecture for future AI/NLP integration
-🛠️ Technologies Used
-Python 3
-Flask
-SQLite
-HTML5
-CSS3
-JavaScript
-🚀 Future Enhancements
-Integration with advanced NLP models
-User authentication and personalized chat history
-Admin dashboard for FAQ management
-Multi-language support
-Cloud deployment and scalability improvements
-🎯 Use Cases
-Customer Support Automation
-FAQ Assistance Systems
-E-commerce Support
-Service Desk Chatbots
-Educational Demonstrations of Flask-based AI Applications
+## Tech Stack
+| Layer | Technology |
+|-------|-----------|
+| Backend | Python 3.10+, Flask |
+| NLP | Keyword scoring + intent classification |
+| Database | SQLite |
+| Frontend | HTML5, CSS3, Vanilla JS |
 
-Developed as part of an AI/ML internship project to demonstrate chatbot development, backend API design, database management, and conversational user experiences.
+## Setup & Run
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/YOUR_USERNAME/nexabot.git
+cd nexabot
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Run the app
+python app.py
+
+# 4. Open in browser
+# http://localhost:5000
+```
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/chat` | Send a message, get bot response |
+| GET | `/api/history/<session_id>` | Retrieve chat history for a session |
+| GET | `/api/stats` | Get global conversation statistics |
+
+### POST `/api/chat`
+```json
+Request:  { "message": "What are your business hours?", "session_id": "abc123" }
+Response: { "response": "We're open Mon-Fri...", "timestamp": "14:35", "session_id": "abc123" }
+```
+
+## Project Structure
+```
+chatbot/
+├── app.py              # Flask backend + NLP logic
+├── requirements.txt
+├── chatbot.db          # SQLite DB (auto-created)
+└── templates/
+    └── index.html      # Frontend UI
+```
+
+## Extending the Chatbot
+- Add more FAQs directly to the `faqs` list in `app.py`
+- Integrate Hugging Face Transformers for advanced NLP
+- Add user authentication for personalized history
+- Deploy on Render / Railway / AWS EC2
+
+## Author
+Built as part of the Codec Technologies AI/ML internship project.
